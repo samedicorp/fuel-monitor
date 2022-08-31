@@ -9,20 +9,10 @@
 			"path": "../../autoconf/custom"
 		},
 		{
-			"name": "container-monitor",
-			"path": "."
-		},
-		{
-			"path": "../../utils"
-		},
-		{
-			"path": "../../pl"
-		},
-		{
-			"path": "../../cpml"
-		},
-		{
 			"path": "../toolkit"
+		},
+		{
+			"path": "."
 		}
 	],
 	"settings": {}
