@@ -27,7 +27,6 @@ function Module:onStart()
     self:attachToScreen()
     local containers = modula:getService("containers")
     if containers then
-        printf("blah")
         containers:findContainers("AtmoFuelContainer", "SpaceFuelContainer")
     end
 
@@ -38,6 +37,7 @@ function Module:onStop()
 end
 
 function Module:onContainerChanged(container)
+     printf("change")
     self.screen:send({ name = container:name(), value = container.percentage })
 end
 

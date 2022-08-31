@@ -13,9 +13,9 @@ modulaSettings = {
     useLocal = useLocal,
     logElements = true,
     modules = {
-        ["samedicorp.fuel-monitor.main"] = { },
         ["samedicorp.modula.modules.screen"] = { },
-        ["samedicorp.modula.modules.containers"] = { }
+        ["samedicorp.modula.modules.containers"] = { },
+        ["samedicorp.fuel-monitor.main"] = { }
     }, 
     templates = "samedicorp/fuel-monitor/templates"
 }
