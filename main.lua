@@ -36,7 +36,6 @@ function Module:onStart()
     if containers then
         containers:findContainers("AtmoFuelContainer", "SpaceFuelContainer")
     end
-
 end
 
 function Module:onStop()

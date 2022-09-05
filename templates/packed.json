@@ -36,35 +36,35 @@
             }
         },
         "0": {
-            "name": "slot1",
+            "name": "core",
             "type": {
                 "methods": [],
                 "events": []
             }
         },
         "1": {
-            "name": "slot2",
+            "name": "atmo_1",
             "type": {
                 "methods": [],
                 "events": []
             }
         },
         "2": {
-            "name": "slot3",
+            "name": "atmo_2",
             "type": {
                 "methods": [],
                 "events": []
             }
         },
         "3": {
-            "name": "slot4",
+            "name": "space_1",
             "type": {
                 "methods": [],
                 "events": []
             }
         },
         "4": {
-            "name": "slot5",
+            "name": "screen",
             "type": {
                 "methods": [],
                 "events": []
@@ -132,7 +132,7 @@
                 "signature": "tick(timerId)",
                 "args": [
                     {
-                        "variable": "*"
+                        "variable": "timerId"
                     }
                 ]
             },
@@ -145,7 +145,7 @@
                 "signature": "actionStart(action)",
                 "args": [
                     {
-                        "variable": "*"
+                        "variable": "action"
                     }
                 ]
             },
@@ -158,7 +158,7 @@
                 "signature": "actionStop(action)",
                 "args": [
                     {
-                        "variable": "*"
+                        "variable": "action"
                     }
                 ]
             },
@@ -171,7 +171,7 @@
                 "signature": "actionLoop(action)",
                 "args": [
                     {
-                        "variable": "*"
+                        "variable": "action"
                     }
                 ]
             },
@@ -202,7 +202,7 @@
                 "signature": "inputText(text)",
                 "args": [
                     {
-                        "variable": "*"
+                        "variable": "text"
                     }
                 ]
             },
@@ -210,6 +210,37 @@
         },
         {
             "key": "9",
+            "filter": {
+                "slotKey": "4",
+                "signature": "onOutputChanged(output)",
+                "args": [
+                    {
+                        "variable": "output"
+                    }
+                ]
+            },
+            "code": "local failure = modula:call(\"onScreenReply\", output); if failure then error(failure) end"
+        },
+        {
+            "key": "10",
+            "filter": {
+                "slotKey": "1",
+                "signature": "onContentChanged()",
+                "args": []
+            },
+            "code": "local failure = modula:call(\"onContentUpdate\"); if failure then error(failure) end"
+        },
+        {
+            "key": "11",
+            "filter": {
+                "slotKey": "3",
+                "signature": "onContentChanged()",
+                "args": []
+            },
+            "code": "local failure = modula:call(\"onContentUpdate\"); if failure then error(failure) end"
+        },
+        {
+            "key": "12",
             "filter": {
                 "slotKey": "-5",
                 "signature": "onStart()",
