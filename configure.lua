@@ -11,7 +11,6 @@ modulaSettings = {
     version = "1.0",
     logging = logging, 
     useLocal = useLocal,
-    logElements = true,
     modules = {
         ["samedicorp.modula.modules.screen"] = { },
         ["samedicorp.modula.modules.containers"] = { },
