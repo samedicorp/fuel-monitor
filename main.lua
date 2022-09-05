@@ -3,12 +3,19 @@
 --  All code (c) 2022, The Samedi Corporation.
 -- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
--- Add the following handler to the screen:
+-- When setting up from JSON (or manually):
+-- Link the screen, core, and fuel tanks to the controller.
+-- Add the following handler to the screen onOutputChanged event:
 --     local failure = modula:call("onScreenReply", output)
 --     if failure then
 --         error(failure)
 --     end
-
+--
+-- Add the following to all fuel tanks onContentChanged event:
+--      local failure = modula:call("onContentUpdate")
+--      if failure then 
+--          error(failure)
+--      end
 
 
 local Module = { }
@@ -37,7 +44,6 @@ function Module:onStop()
 end
 
 function Module:onContainerChanged(container)
-     printf("change")
     self.screen:send({ name = container:name(), value = container.percentage })
 end
 
@@ -72,18 +78,12 @@ if payload then
     reply = { name = name, result = "ok" }
 end
 
-local toolkit = require('samedicorp.toolkit.toolkit')
-local Layer = require('samedicorp.toolkit.layer')
-local Chart = require('samedicorp.toolkit.chart')
-local layer = Layer.new()
-
-local rect = layer.rect:inset(10)
-local chart = Chart.new(rect, containers, "Play")
-layer:addWidget(chart)
+local screen = toolkit.Screen.new()
+local layer = screen:addLayer()
+local chart = layer:addChart(layer.rect:inset(10), containers, "Play")
 
 layer:render()
-
-rate = layer:scheduleRefresh()
+screen:scheduleRefresh()
 ]]
 
 return Module
